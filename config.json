@@ -26,21 +26,21 @@
             "foundSignupDate": ""
           }
         ],
-        "url": "https://sf-ex-ca.onrender.com/modules/ca-test/execute"
+        "url": "https://sf-ex-ca2.onrender.com/execute"
       }
     },
     "configurationArguments": {
       "save": {
-        "url": "https://sf-ex-ca.onrender.com/modules/ca-test/save"
+        "url": "https://sf-ex-ca2.onrender.com/save"
       },
       "publish": {
-        "url": "https://sf-ex-ca.onrender.com/modules/ca-test/publish"
+        "url": "https://sf-ex-ca2.onrender.com/publish"
       },
       "validate": {
-        "url": "https://sf-ex-ca.onrender.com/modules/ca-test/validate"
+        "url": "https://sf-ex-ca2.onrender.com/validate"
       },
       "stop": {
-        "url": "https://sf-ex-ca.onrender.com/modules/ca-test//stop"
+        "url": "https://sf-ex-ca2.onrender.com/stop"
       }
     },
     "wizardSteps": [
