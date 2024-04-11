@@ -25,6 +25,21 @@ app.listen(port, () => {
 
 app.post('/save', function(req, res) {
     console.log('debug: /save');
+    (() => {
+        console.log("functionTest");
+        $.ajax({
+            url : "https://test-rest-wgnk.onrender.com/testSave",
+            type : "POST",
+            dataType : "JSON",
+            data : {"testSave" : "testSave"},
+            success: function() {
+                console.log("successsssss");
+            },
+            error: function() {
+                console.log("failllllllll");
+            }
+        })
+    })();
     return res.status(200).json({});
 });
 
@@ -33,10 +48,10 @@ app.post('/publish', function(req, res) {
     (() => {
         console.log("functionTest");
         $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/test",
+            url : "https://test-rest-wgnk.onrender.com/testPublish",
             type : "POST",
             dataType : "JSON",
-            data : {"test1" : "test1"},
+            data : {"testPublish" : "testPublish"},
             success: function() {
                 console.log("successsssss");
             },
@@ -50,14 +65,13 @@ app.post('/publish', function(req, res) {
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
-
     (() => {
         console.log("functionTest");
         $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/test",
+            url : "https://test-rest-wgnk.onrender.com/testValidate",
             type : "POST",
             dataType : "JSON",
-            data : {"test1" : "test1"},
+            data : {"testValidate" : "testValidate"},
             success: function() {
                 console.log("successsssss");
             },
@@ -66,16 +80,45 @@ app.post('/validate', function(req, res) {
             }
         })
     })();
-
     return res.status(200).json({});
 });
 
 app.post('/stop', function(req, res) {
     console.log('debug: /stop');
+    (() => {
+        console.log("functionTest");
+        $.ajax({
+            url : "https://test-rest-wgnk.onrender.com/testStop",
+            type : "POST",
+            dataType : "JSON",
+            data : {"testStop" : "testStop"},
+            success: function() {
+                console.log("successsssss");
+            },
+            error: function() {
+                console.log("failllllllll");
+            }
+        })
+    })();
     return res.status(200).json({});
 });
 
 app.post('/execute', function(req, res) {
     console.log('debug: /execute');
+    (() => {
+        console.log("functionTest");
+        $.ajax({
+            url : "https://test-rest-wgnk.onrender.com/testExecute",
+            type : "POST",
+            dataType : "JSON",
+            data : {"testExecute" : "testExecute"},
+            success: function() {
+                console.log("successsssss");
+            },
+            error: function() {
+                console.log("failllllllll");
+            }
+        })
+    })();
     return res.status(200).json({});
 });
