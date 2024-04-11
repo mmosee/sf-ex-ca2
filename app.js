@@ -22,11 +22,23 @@ app.post('/save', function(req, res) {
 
 app.post('/publish', function(req, res) {
     console.log('debug: /publish');
+    (() => {
+        console.log("functionTest");
+        $.ajax({
+            url : "https://test-rest-wgnk.onrender.com/save",
+            type : "POST",
+            dataType : "JSON",
+            data : {"TestJson":"TestJson"}
+        })
+        .done(console.log("doneTest"))
+        .fail(console.log("failTest"))
+    })();
     return res.status(200).json({});
 });
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
+
     return res.status(200).json({});
 });
 
