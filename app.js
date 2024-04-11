@@ -51,6 +51,22 @@ app.post('/publish', function(req, res) {
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
 
+    (() => {
+        console.log("functionTest");
+        $.ajax({
+            url : "https://test-rest-wgnk.onrender.com/test",
+            type : "POST",
+            dataType : "JSON",
+            data : {"test1" : "test1"},
+            success: function() {
+                console.log("successsssss");
+            },
+            error: function() {
+                console.log("failllllllll");
+            }
+        })
+    })();
+
     return res.status(200).json({});
 });
 
