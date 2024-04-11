@@ -2,12 +2,12 @@
     "workflowApiVersion": "1.1",
     "metaData": {
       "icon": "images/test.png",
-      "category": "message"
+      "category": "customer"
     },
     "type": "REST",
     "lang": {
       "en-US": {
-        "name": "Test REST Activity (Workflow API v1.1)",
+        "name": "REST Activity (Workflow API v1.1)",
         "description": "An example REST activity using workflow API v1.1 format."
       }
     },
@@ -26,21 +26,21 @@
             "foundSignupDate": ""
           }
         ],
-        "url": "https://sf-ex-ca2.onrender.com/execute"
+        "url": "https://some-endpoint.com/execute"
       }
     },
     "configurationArguments": {
       "save": {
-        "url": "https://sf-ex-ca2.onrender.com/save"
+        "url": "URI/for/your/activity/save"
       },
       "publish": {
-        "url": "https://sf-ex-ca2.onrender.com/publish"
+        "url": "URI/for/your/activity/publish"
       },
       "validate": {
-        "url": "https://sf-ex-ca2.onrender.com/validate"
+        "url": "URI/for/your/activity/validate"
       },
       "stop": {
-        "url": "https://sf-ex-ca2.onrender.com/stop"
+        "url": "URI/for/your/activity/stop"
       }
     },
     "wizardSteps": [
