@@ -2,6 +2,14 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require('path');
+
+const {JSDOM} = require("jsdom");
+const {window} = new JSDOM();
+const {document} = new JSDOM('').window;
+global.document = document;
+
+const $ = require("jquery")(window);
+
 const port = 3000;
 
 app.use(express.static(__dirname));
@@ -25,13 +33,17 @@ app.post('/publish', function(req, res) {
     (() => {
         console.log("functionTest");
         $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/save",
+            url : "http://127.0.0.1:5500/save",
             type : "POST",
             dataType : "JSON",
-            data : {"TestJson":"TestJson"}
+            data : {"test1" : "test1"},
+            success: function() {
+                console.log("successsssss");
+            },
+            error: function() {
+                console.log("failllllllll");
+            }
         })
-        .done(console.log("doneTest"))
-        .fail(console.log("failTest"))
     })();
     return res.status(200).json({});
 });
