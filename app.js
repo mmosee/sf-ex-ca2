@@ -33,7 +33,7 @@ app.post('/publish', function(req, res) {
     (() => {
         console.log("functionTest");
         $.ajax({
-            url : "http://127.0.0.1:5500/save",
+            url : "https://test-rest-wgnk.onrender.com/test",
             type : "POST",
             dataType : "JSON",
             data : {"test1" : "test1"},
