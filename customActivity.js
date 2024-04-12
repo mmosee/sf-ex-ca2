@@ -24,6 +24,8 @@ define(["postmonger"], function (Postmonger) {
     connection.on("gotoStep", onGotoStep);
   
     function onRender() {
+      //Test
+      console.log("customActivity.js - onRender")
       // JB will respond the first time 'ready' is called with 'initActivity'
       connection.trigger("ready");
   
@@ -52,6 +54,8 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function initialize(data) {
+      //Test
+      console.log("customActivity.js - initialize")
       if (data) {
         payload = data;
       }
@@ -91,16 +95,22 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function onGetTokens(tokens) {
+      //Test
+      console.log("customActivity.js - onGetTokens")
       // Response: tokens = { token: <legacy token>, fuel2token: <fuel api token> }
       // console.log(tokens);
     }
   
     function onGetEndpoints(endpoints) {
+      //Test
+      console.log("customActivity.js - onGetEndpoints")
       // Response: endpoints = { restHost: <url> } i.e. "rest.s1.qa1.exacttarget.com"
       // console.log(endpoints);
     }
   
     function onClickedNext() {
+      //Test
+      console.log("customActivity.js - onClickedNext")
       if (
         (currentStep.key === "step3" && steps[3].active === false) ||
         currentStep.key === "step4"
@@ -112,15 +122,21 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function onClickedBack() {
+      //Test
+      console.log("customActivity.js - onClickedBack")
       connection.trigger("prevStep");
     }
   
     function onGotoStep(step) {
+      //Test
+      console.log("customActivity.js - onGotoStep")
       showStep(step);
       connection.trigger("ready");
     }
   
     function showStep(step, stepIndex) {
+      //Test
+      console.log("customActivity.js - showStep")
       if (stepIndex && !step) {
         step = steps[stepIndex - 1];
       }
@@ -180,6 +196,8 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function save() {
+      //Test
+      console.log("customActivity.js - save")
       var name = $("#select1").find("option:selected").html();
       var value = getMessage();
   
@@ -197,6 +215,8 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function getMessage() {
+      //Test
+      console.log("customActivity.js - getMessage")
       return $("#select1").find("option:selected").attr("value").trim();
     }
   });
