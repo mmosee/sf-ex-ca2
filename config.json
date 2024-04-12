@@ -15,15 +15,12 @@
       "execute": {
         "inArguments": [
           {
-            "testExecute1": "testExecute1"
-          },
-          {
-            "testExecute2": "testExecute2"
+            "testInArguments": "testInArguments"
           }
         ],
         "outArguments": [
           {
-            "foundSignupDate": ""
+            "testOutArguments": "testOutArguments"
           }
         ],
         "url": "https://sf-ex-ca2.onrender.com/execute"
