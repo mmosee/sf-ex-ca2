@@ -2,13 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const path = require('path');
-
-const {JSDOM} = require("jsdom");
-const {window} = new JSDOM();
-const {document} = new JSDOM('').window;
-global.document = document;
-
-const $ = require("jquery")(window);
+const axios = require('axios');
 
 const port = 3000;
 
@@ -23,102 +17,56 @@ app.listen(port, () => {
     console.log(`Started ${port}`);
 })
 
+app.post('/test', function(req, res) {
+    console.log('debug: /test');
+
+    //Test Axios Start
+    const testAxiosData = {
+        key1: 'value1',
+        key2: 'value2'
+    }
+
+    axios.post('http://127.0.0.1:5500/test', testAxiosData)
+    .then(function (res) {
+        console.log("요청 성공");
+        console.log("응답 데이터 - ", res.data)
+    })
+    .catch(function(error) {
+        console.log("요청 실패", error)
+    })
+    //Test Axios End
+
+    return res.status(200).json({});
+});
+
 app.post('/save', function(req, res) {
     console.log('debug: /save');
-    (() => {
-        console.log("functionTest");
-        $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/testSave",
-            type : "POST",
-            dataType : "JSON",
-            data : {"testSave" : "testSave"},
-            success: function() {
-                console.log("successsssss");
-            },
-            error: function() {
-                console.log("failllllllll");
-            }
-        })
-    })();
+    
     return res.status(200).json({});
 });
 
 app.post('/publish', function(req, res) {
     console.log('debug: /publish');
-    (() => {
-        console.log("functionTest");
-        $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/testPublish",
-            type : "POST",
-            dataType : "JSON",
-            data : {"testPublish" : "testPublish"},
-            success: function() {
-                console.log("successsssss");
-            },
-            error: function() {
-                console.log("failllllllll");
-            }
-        })
-    })();
+    
     return res.status(200).json({});
 });
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
-    (() => {
-        console.log("functionTest");
-        $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/testValidate",
-            type : "POST",
-            dataType : "JSON",
-            data : {"testValidate" : "testValidate"},
-            success: function() {
-                console.log("successsssss");
-            },
-            error: function() {
-                console.log("failllllllll");
-            }
-        })
-    })();
+    
     return res.status(200).json({});
 });
 
 app.post('/stop', function(req, res) {
     console.log('debug: /stop');
-    (() => {
-        console.log("functionTest");
-        $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/testStop",
-            type : "POST",
-            dataType : "JSON",
-            data : {"testStop" : "testStop"},
-            success: function() {
-                console.log("successsssss");
-            },
-            error: function() {
-                console.log("failllllllll");
-            }
-        })
-    })();
+    
     return res.status(200).json({});
 });
 
 app.post('/execute', function(req, res) {
     console.log('debug: /execute');
-    (() => {
-        console.log("functionTest");
-        $.ajax({
-            url : "https://test-rest-wgnk.onrender.com/testExecute",
-            type : "POST",
-            dataType : "JSON",
-            data : {"testExecute" : "testExecute"},
-            success: function() {
-                console.log("successsssss");
-            },
-            error: function() {
-                console.log("failllllllll");
-            }
-        })
-    })();
+    
+    console.log(req.body);
+    
     return res.status(200).json({});
 });

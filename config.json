@@ -15,10 +15,10 @@
       "execute": {
         "inArguments": [
           {
-            "emailAddress": "{{InteractionDefaults.Email}}"
+            "testExecute1": "testExecute1"
           },
           {
-            "phoneNumber": "{{Contact.Default.PhoneNumber}}"
+            "testExecute2": "testExecute2"
           }
         ],
         "outArguments": [
