@@ -34,7 +34,10 @@
         "url": "https://sf-ex-ca2.onrender.com/publish"
       },
       "validate": {
-        "url": "https://sf-ex-ca2.onrender.com/validate"
+        "url": "https://sf-ex-ca2.onrender.com/validate",
+        "verd" : "POST",
+        "body" : "body123",
+        "useJwt" : false
       },
       "stop": {
         "url": "https://sf-ex-ca2.onrender.com/stop"
