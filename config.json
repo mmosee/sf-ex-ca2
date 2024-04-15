@@ -36,7 +36,12 @@
       "validate": {
         "url": "https://sf-ex-ca2.onrender.com/validate",
         "verd" : "POST",
-        "body" : "body123",
+        "body" : {
+          "key1" : "value1"
+        },
+        "header" : {
+          "Content-Type" : "application/json"
+        },
         "useJwt" : false
       },
       "stop": {
