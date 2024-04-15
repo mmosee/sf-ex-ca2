@@ -16,21 +16,30 @@ define(["postmonger"], function (Postmonger) {
     $(window).ready(onRender);
   
     connection.on("initActivity", initialize);
+    console.log("connection.on - initialize")
     connection.on("requestedTokens", onGetTokens);
+    console.log("connection.on - onGetTokens")
     connection.on("requestedEndpoints", onGetEndpoints);
+    console.log("connection.on - onGetEndpoints")
   
     connection.on("clickedNext", onClickedNext);
+    console.log("connection.on - onClickedNext")
     connection.on("clickedBack", onClickedBack);
+    console.log("connection.on - onClickedBack")
     connection.on("gotoStep", onGotoStep);
+    console.log("connection.on - onGotoStep")
   
     function onRender() {
       //Test
       console.log("customActivity.js - onRender")
       // JB will respond the first time 'ready' is called with 'initActivity'
       connection.trigger("ready");
+      console.log("connection.trigger - ready");
   
       connection.trigger("requestTokens");
+      console.log("connection.trigger - requestTokens");
       connection.trigger("requestEndpoints");
+      console.log("connection.trigger - requestEndpoints");
   
       // Disable the next button if a value isn't selected
       $("#select1").change(function () {
@@ -39,7 +48,8 @@ define(["postmonger"], function (Postmonger) {
           button: "next",
           enabled: Boolean(message),
         });
-  
+        console.log("connection.trigger - updateButton 1");
+
         $("#message").html(message);
       });
   
@@ -50,6 +60,7 @@ define(["postmonger"], function (Postmonger) {
         steps[3].active = !steps[3].active; // toggle active
   
         connection.trigger("updateSteps", steps);
+        console.log("connection.trigger - updateSteps");
       });
     }
   
@@ -84,6 +95,7 @@ define(["postmonger"], function (Postmonger) {
       if (!message) {
         showStep(null, 1);
         connection.trigger("updateButton", { button: "next", enabled: false });
+        console.log("connection.trigger - updateButton 2");
         // If there is a message, skip to the summary step
       } else {
         $("#select1")
@@ -118,6 +130,7 @@ define(["postmonger"], function (Postmonger) {
         save();
       } else {
         connection.trigger("nextStep");
+        console.log("connection.trigger - nextStep");
       }
     }
   
@@ -125,6 +138,7 @@ define(["postmonger"], function (Postmonger) {
       //Test
       console.log("customActivity.js - onClickedBack")
       connection.trigger("prevStep");
+      console.log("connection.trigger - prevStep");
     }
   
     function onGotoStep(step) {
@@ -132,6 +146,7 @@ define(["postmonger"], function (Postmonger) {
       console.log("customActivity.js - onGotoStep")
       showStep(step);
       connection.trigger("ready");
+      console.log("connection.trigger - ready");
     }
   
     function showStep(step, stepIndex) {
@@ -152,10 +167,12 @@ define(["postmonger"], function (Postmonger) {
             button: "next",
             enabled: Boolean(getMessage()),
           });
+          console.log("connection.trigger - updateButton 3");
           connection.trigger("updateButton", {
             button: "back",
             visible: false,
           });
+          console.log("connection.trigger - updateButton 4");
           break;
         case "step2":
           $("#step2").show();
@@ -163,11 +180,13 @@ define(["postmonger"], function (Postmonger) {
             button: "back",
             visible: true,
           });
+          console.log("connection.trigger - updateButton 5");
           connection.trigger("updateButton", {
             button: "next",
             text: "next",
             visible: true,
           });
+          console.log("connection.trigger - updateButton 6");
           break;
         case "step3":
           $("#step3").show();
@@ -175,18 +194,21 @@ define(["postmonger"], function (Postmonger) {
             button: "back",
             visible: true,
           });
+          console.log("connection.trigger - updateButton 7");
           if (lastStepEnabled) {
             connection.trigger("updateButton", {
               button: "next",
               text: "next",
               visible: true,
             });
+            console.log("connection.trigger - updateButton 8");
           } else {
             connection.trigger("updateButton", {
               button: "next",
               text: "done",
               visible: true,
             });
+            console.log("connection.trigger - updateButton 9");
           }
           break;
         case "step4":
@@ -212,6 +234,7 @@ define(["postmonger"], function (Postmonger) {
       payload["metaData"].isConfigured = true;
   
       connection.trigger("updateActivity", payload);
+      console.log("connection.trigger - updateActivity");
     }
   
     function getMessage() {
