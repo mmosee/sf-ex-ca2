@@ -55,8 +55,6 @@ app.post('/validate', function(req, res) {
     console.log('debug: /validate');
     console.log('--------------------------');
     console.log(req.body);
-    console.log('--------------------------');
-    console.log(req);
     
     return res.status(200).json({});
 });
