@@ -238,8 +238,8 @@ define(["postmonger"], function (Postmonger) {
 
   //   }
   
-  //   function getMessage() {
-  //     return $("#select1").find("option:selected").attr("value").trim();
-  //   }
+    function getMessage() {
+      return $("#select1").find("option:selected").attr("value").trim();
+    }
 
 });
