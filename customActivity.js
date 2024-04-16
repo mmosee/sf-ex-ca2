@@ -178,31 +178,67 @@ define(["postmonger"], function (Postmonger) {
           break;
       }
     }
-  
+
+    //TEST 1
     function save() {
       var name = $("#select1").find("option:selected").html();
       var value = getMessage();
-  
+    
       // 'payload' is initialized on 'initActivity' above.
       // Journey Builder sends an initial payload with defaults
       // set by this activity's config.json file.  Any property
       // may be overridden as desired.
       payload.name = name;
-  
+    
       payload["arguments"].execute.inArguments = [{ message: value }];
-  
+    
       payload["metaData"].isConfigured = true;
-
-      //Validate 테스트 부분 시작
-      // payload.configurationArguments.validate = [{ body: "bodyTest" }]
-      //Validate 테스트 부분 끝
-      payload["errors"] = ["에러 메시지 테스트"]
-
+    
+      // 특정 조건을 확인하여 오류 메시지 설정
+      if (!value) {
+        // 메시지가 선택되지 않았을 때
+        payload["errors"] = ["메시지를 선택해야합니다."];
+      } else {
+        // 특정 조건에 따라 오류 메시지 설정
+        if (value.length < 5) {
+          payload["errors"] = ["메시지는 최소 5자 이상이어야 합니다."];
+        } else {
+          // 오류가 없는 경우 오류 메시지를 제거
+          delete payload["errors"];
+        }
+      }
+    
       connection.trigger("updateActivity", payload);
-
     }
+    
   
-    function getMessage() {
-      return $("#select1").find("option:selected").attr("value").trim();
-    }
-  });
+
+    //원본
+  //   function save() {
+  //     var name = $("#select1").find("option:selected").html();
+  //     var value = getMessage();
+  
+  //     // 'payload' is initialized on 'initActivity' above.
+  //     // Journey Builder sends an initial payload with defaults
+  //     // set by this activity's config.json file.  Any property
+  //     // may be overridden as desired.
+  //     payload.name = name;
+  
+  //     payload["arguments"].execute.inArguments = [{ message: value }];
+  
+  //     payload["metaData"].isConfigured = true;
+
+  //     //Validate 테스트 부분 시작
+  //     // payload.configurationArguments.validate = [{ body: "bodyTest" }]
+  //     //Validate 테스트 부분 끝
+  //     payload["errors"] = ["에러 메시지 테스트"]
+
+  //     connection.trigger("updateActivity", payload);
+
+  //   }
+  
+  //   function getMessage() {
+  //     return $("#select1").find("option:selected").attr("value").trim();
+  //   }
+
+});
