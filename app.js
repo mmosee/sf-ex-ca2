@@ -51,15 +51,26 @@ app.post('/publish', function(req, res) {
     return res.status(200).json({});
 });
 
+// app.post('/validate', function(req, res) {
+//     console.log('debug: /validate');
+    
+//     console.log(req.body);
+
+//     return res.status(400).json({ "error" : "필수값이없" });
+//     // return res.status(500).json({ "error" : "서버에서오" });
+//     // return res.status(200).json({});
+// });
+
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
-    
-    console.log(req.body);
 
-    return res.status(400).json({ "error" : "필수값이없" });
-    // return res.status(500).json({ "error" : "서버에서오" });
-    // return res.status(200).json({});
+    // Get the error message from the request body or set a default one
+    const errorMessage = req.body.error || "An error occurred.";
+
+    // Return the error message as JSON response
+    return res.status(400).json({ "message": errorMessage });
 });
+
 
 app.post('/stop', function(req, res) {
     console.log('debug: /stop');
