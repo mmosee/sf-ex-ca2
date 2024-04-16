@@ -181,9 +181,12 @@ define(["postmonger"], function (Postmonger) {
 
     //TEST 1
     function save() {
+      console.log("Test - save() 진입");
       var name = $("#select1").find("option:selected").html();
       var value = getMessage();
-    
+      console.log("Test - value");
+      console.log(value);
+
       // 'payload' is initialized on 'initActivity' above.
       // Journey Builder sends an initial payload with defaults
       // set by this activity's config.json file.  Any property
@@ -197,14 +200,16 @@ define(["postmonger"], function (Postmonger) {
       // 특정 조건을 확인하여 오류 메시지 설정
       if (!value) {
         // 메시지가 선택되지 않았을 때
+        console.log("Test - if 1");
         payload["errors"] = ["메시지를 선택해야합니다."];
       } else {
         // 특정 조건에 따라 오류 메시지 설정
         if (value.length < 5) {
-          console.log("여기지")
+          console.log("Test - if 2");
           payload["errors"] = ["메시지는 최소 5자 이상이어야 합니다."];
         } else {
           // 오류가 없는 경우 오류 메시지를 제거
+          console.log("Test - if 3");
           delete payload["errors"];
         }
       }
