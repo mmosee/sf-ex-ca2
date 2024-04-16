@@ -24,8 +24,6 @@ define(["postmonger"], function (Postmonger) {
     connection.on("gotoStep", onGotoStep);
   
     function onRender() {
-      //Test
-      console.log("customActivity.js - onRender")
       // JB will respond the first time 'ready' is called with 'initActivity'
   
       connection.trigger("requestTokens");
@@ -180,8 +178,6 @@ define(["postmonger"], function (Postmonger) {
     }
   
     function save() {
-      //Test
-      console.log("customActivity.js - save")
       var name = $("#select1").find("option:selected").html();
       var value = getMessage();
   
