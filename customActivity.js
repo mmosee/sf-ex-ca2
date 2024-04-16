@@ -206,7 +206,7 @@ define(["postmonger"], function (Postmonger) {
         // 특정 조건에 따라 오류 메시지 설정
         if (value.length < 5) {
           console.log("Test - if 2");
-          payload["errors"] = ["메시지는 최소 5자 이상이어야 합니다."];
+          payload["errors"] = [{ "message": "오류 메시지 테스트" }];
         } else {
           // 오류가 없는 경우 오류 메시지를 제거
           console.log("Test - if 3");
