@@ -29,7 +29,7 @@ define(["postmonger"], function (Postmonger) {
   
       connection.trigger("requestTokens");
       connection.trigger("requestEndpoints");
-      
+
       // Disable the next button if a value isn't selected
       $("#select1").change(function () {
         var message = getMessage();
@@ -196,6 +196,7 @@ define(["postmonger"], function (Postmonger) {
       //Validate 테스트 부분 시작
       // payload.configurationArguments.validate = [{ body: "bodyTest" }]
       //Validate 테스트 부분 끝
+      payload["errors"] = ["에러 메시지 테스트"]
 
       connection.trigger("updateActivity", payload);
 
