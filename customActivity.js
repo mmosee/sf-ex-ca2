@@ -85,6 +85,7 @@ define(["postmonger"], function(Postmonger) {
 
   function onClickedNext() {
       if ((currentStep.key === "step3" && steps[3].active === false) || currentStep.key === "step4") {
+          console.log("onClickedNext - validateStep");
           validateStep();
           save();
       } else {
@@ -184,6 +185,7 @@ function validateStep() {
     url: "https://sf-ex-ca2.onrender.com/validate",
     contentType: "application/json",
     success: function(response) {
+      console.log("vadateStop - success");
       // If the response contains a message, display it
       if (response && response.message) {
         alert(response.message); // Display the error message
@@ -192,6 +194,7 @@ function validateStep() {
       }
     },
     error: function(xhr, status, error) {
+      console.log("vadateStop - error");
       // Display a default error message if the request fails
       alert("An error occurred: " + error);
     }
