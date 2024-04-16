@@ -181,7 +181,7 @@ function validateStep() {
   // Make a POST request to the '/validate' endpoint
   $.ajax({
     type: "POST",
-    url: "/validate",
+    url: "https://sf-ex-ca2.onrender.com/validate",
     contentType: "application/json",
     success: function(response) {
       // If the response contains a message, display it
