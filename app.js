@@ -53,8 +53,6 @@ app.post('/publish', function(req, res) {
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
-    console.log('--------------------------');
-    console.log(req.body);
     
     return res.status(200).json({});
 });

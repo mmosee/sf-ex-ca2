@@ -34,13 +34,7 @@
         "url": "https://sf-ex-ca2.onrender.com/publish"
       },
       "validate": {
-        "url": "https://sf-ex-ca2.onrender.com/validate",
-        "body" : {
-          "key1" : "value1"
-        },
-        "header" : {
-          "Content-Type" : "application/json"
-        }
+        "url": "https://sf-ex-ca2.onrender.com/validate"
       },
       "stop": {
         "url": "https://sf-ex-ca2.onrender.com/stop"
