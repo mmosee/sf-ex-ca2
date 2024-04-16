@@ -85,6 +85,7 @@ define(["postmonger"], function(Postmonger) {
 
   function onClickedNext() {
       if ((currentStep.key === "step3" && steps[3].active === false) || currentStep.key === "step4") {
+          validateStep();
           save();
       } else {
           connection.trigger("nextStep");
@@ -174,3 +175,25 @@ define(["postmonger"], function(Postmonger) {
       return $("#select1").find("option:selected").attr("value").trim();
   }
 });
+
+//Validate 테스트
+function validateStep() {
+  // Make a POST request to the '/validate' endpoint
+  $.ajax({
+    type: "POST",
+    url: "/validate",
+    contentType: "application/json",
+    success: function(response) {
+      // If the response contains a message, display it
+      if (response && response.message) {
+        alert(response.message); // Display the error message
+      } else {
+        connection.trigger('updateActivity', { isValid: true }); // Proceed if no error message
+      }
+    },
+    error: function(xhr, status, error) {
+      // Display a default error message if the request fails
+      alert("An error occurred: " + error);
+    }
+  });
+}
