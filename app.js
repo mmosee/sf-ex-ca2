@@ -54,9 +54,9 @@ app.post('/publish', function(req, res) {
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
     
-    return res.status(400).json({});
+    // return res.status(400).json({});
     // return res.status(500).json({ "Message" : "필수값이없" });
-//     return res.status(200).json({});
+    return res.status(200).json({});
 });
 
 app.post('/stop', function(req, res) {
