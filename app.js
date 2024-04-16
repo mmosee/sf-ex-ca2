@@ -68,7 +68,8 @@ app.post('/validate', function(req, res) {
     const errorMessage = req.body.error || "An error occurred.";
 
     // Return the error message as JSON response
-    return res.status(400).json({ "message": errorMessage });
+    // return res.status(400).json({ "message": errorMessage });
+    return res.status(200).json({ "message" : "app.js - validate - success" });
 });
 
 

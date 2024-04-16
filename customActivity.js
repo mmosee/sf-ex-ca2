@@ -200,4 +200,5 @@ function validateStep() {
       alert("An error occurred: " + error);
     }
   });
+  console.log("validataStop() - 이탈");
 }
