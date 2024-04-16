@@ -179,6 +179,7 @@ define(["postmonger"], function(Postmonger) {
 
 //Validate 테스트
 function validateStep() {
+    console.log("validataStop() - 진입");
   // Make a POST request to the '/validate' endpoint
   $.ajax({
     type: "POST",
