@@ -87,7 +87,7 @@ define(["postmonger"], function(Postmonger) {
       if ((currentStep.key === "step3" && steps[3].active === false) || currentStep.key === "step4") {
           console.log("onClickedNext - validateStep");
           validateStep();
-          save();
+        //   save();
       } else {
           connection.trigger("nextStep");
       }
