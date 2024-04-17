@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const app = express();
 const path = require('path');
 const axios = require('axios');
@@ -8,6 +9,7 @@ const port = 3000;
 
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
+app.use(cors());
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html")
