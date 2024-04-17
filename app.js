@@ -65,7 +65,7 @@ app.post('/publish', function(req, res) {
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
-    res.send(
+    return res.send(
         `<script>alert('alert Test')</sctipt>`
     );
 
@@ -74,7 +74,7 @@ app.post('/validate', function(req, res) {
 
     // Return the error message as JSON response
     // return res.status(400).json({ "message": errorMessage });
-    return res.status(200).json({ "message" : "app.js - validate - success" });
+    // return res.status(200).json({ "message" : "app.js - validate - success" });
 });
 
 
