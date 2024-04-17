@@ -200,5 +200,5 @@ function validateStep() {
       alert("An error occurred: " + error);
     }
   });
-  setTimeout(() => console.log("validataStop() - 이탈"), 1000);
+  console.log("validataStop() - 이탈");
 }
