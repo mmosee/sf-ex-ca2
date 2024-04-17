@@ -65,16 +65,13 @@ app.post('/publish', function(req, res) {
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
-    return res.send(
-        `<script>alert('alert Test')</script>`
-    );
 
     // Get the error message from the request body or set a default one
     const errorMessage = req.body.error || "An error occurred.";
 
     // Return the error message as JSON response
     // return res.status(400).json({ "message": errorMessage });
-    // return res.status(200).json({ "message" : "app.js - validate - success" });
+    return res.status(200).json({ "message" : "app.js - validate - success" });
 });
 
 
