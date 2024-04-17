@@ -65,6 +65,7 @@ app.post('/publish', function(req, res) {
 
 app.post('/validate', function(req, res) {
     console.log('debug: /validate');
+    alert("alertTest");
 
     // Get the error message from the request body or set a default one
     const errorMessage = req.body.error || "An error occurred.";
